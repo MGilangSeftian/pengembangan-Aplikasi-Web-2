@@ -17,9 +17,8 @@ MahasiswaRouter.route("/:npm")
     res.send("Delete Mahasiswa" + req.params.npm);
   });
 
-  MahasiswaRouter.route("/kelas")
-  .get((req,res) => {
-    const kelas = req.query.idkelas;
-    res.send("Kelasnya adalah " + kelas);
-  });
+MahasiswaRouter.route("/kelas").get((req, res) => {
+  const kelas = req.query.idkelas;
+  res.send("Kelasnya adalah " + kelas);
+});
 module.exports = MahasiswaRouter;
