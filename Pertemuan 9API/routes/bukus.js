@@ -7,7 +7,7 @@ const Buku = require("../model/buku");
 //   res.send('respond dari buku router');
 // });
 
-router.post('path',(req,res) =>{
+router.post('/',(req,res) =>{
     const buku =new Buku({
         judul : res.body.judul,
         penulis : res.body.penulis,
@@ -15,9 +15,13 @@ router.post('path',(req,res) =>{
     });
 
     console.log(buku);
-    res.status(201).json({
-        message : "Data Berhasl disimpan "
+    buku.save().then((createdbBuku)=>{
+        res.status(201).json({
+            message : "Data Berhasl disimpan ",
+            bookId  : createdbBuku.id
+        });
     });
+
 });
 
 module.exports = router;
