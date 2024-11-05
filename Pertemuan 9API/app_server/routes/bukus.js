@@ -1,7 +1,8 @@
 var express = require("express");
 var router = express.Router();
 
-const Bukucontroller = require("../../controller/buku.js");
+
+const Bukucontroller = require("../controller/buku.js");
 // /* GET users listing. */
 // router.get('/', function(req, res, next) {
 //   res.send('respond dari buku router');
@@ -23,11 +24,12 @@ const Bukucontroller = require("../../controller/buku.js");
 //   });
 // });
 
-router.post("/", Bukucontroller.createBuku);
+router.post("/",Bukucontroller.createBuku) ;
+  
 
 router.get("/", Bukucontroller.readBuku);
 
-router.delete("/:id", Bukucontroller.deleteBuku);
+router.delete("/:id",Bukucontroller.deleteBuku);
 
-router.put("/:id", Bukucontroller.updateBuku);
+router.put("/:id",Bukucontroller.updateBuku); 
 module.exports = router;
