@@ -6,38 +6,43 @@
 
     <div class="row">
         <div class="col-md-6">
-            <form class="m-4" (submit) = 'simpanBuku(bukuForm)' #bukuform="ngForm">
-                <div class="card mb-4">
-                    <div class="mb-3 m-4">
-                        <label for="Judul" class="form-label">Judul</label>
-                        <input type="text" class="form-control" id="Judul" ngModels name="judul">
-                      </div>
-                      <div class="mb-3 m-4">
-                        <label for="Pelunis" class="form-label">Penulis</label>
-                        <input type="text" class="form-control" id="Penulis" ngModels name="penulis" >
-                      </div>
-                      <div class="form-check form-check-inline m-4">
-                        <label class="form-check-label" for="inlineCheckbox1">Genre</label>
-                      </div>
-                      <div class="form-check form-check-inline m-4">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" ngModels name="1">
-                        <label class="form-check-label" for="inlineCheckbox1">Biografi</label>
-                      </div>
-                      <div class="form-check form-check-inline m-4">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" ngModels name="2">
-                        <label class="form-check-label" for="inlineCheckbox2">Pendidika</label>
-                      </div>
-                      <div class="form-check form-check-inline m-4">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" ngModels name="3">
-                        <label class="form-check-label" for="inlineCheckbox3">Lainnya</label>
-                      </div>
-                      <button type="submit" class="btn-primary">Simpan</button>
-                </div>
-                
-            </form>
+            <div class="card mb-4">
+                <form class="m-4" (submit)="simpanBuku(bukuForm)" #bukuForm="ngForm">
+                    <div class="mb-3">
+                        <label for="judul" class="form-label">Judul</label>
+                        <input type="text" class="form-control" id="judul" ngModel name="judul">
+                    </div>
+                    <div class="mb-3">
+                        <label for="penulis" class="form-label">Penulis</label>
+                        <input type="text" class="form-control" id="penulis" ngModel name="penulis">
+                    </div>
 
+                    <div class="mb-3">
+                        <label class="form-label me-4">Genre</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="biografi"
+                                ngModel name="genre1">
+                            <label class="form-check-label" for="inlineCheckbox1">Biografi</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="pendidikan"
+                                ngModel name="genre2">
+                            <label class="form-check-label" for="inlineCheckbox2">Pendidikan</label>
+                        </div>
 
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="lainnya" ngModel
+                                name="genre3">
+                            <label class="form-check-label" for="inlineCheckbox2">Lainnya</label>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Simpan Buku</button>
+                </form>
+            </div>
         </div>
+
         <div class="col-md-6">
             <div class="card mb-4">
                 <div class="card-header">
@@ -526,8 +531,7 @@
                         </tbody>
                     </table>
                 </div>
-
+            </div>
         </div>
-
     </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+
 @Component({
   selector: 'app-buku',
   templateUrl: './buku.component.html',
@@ -8,8 +9,8 @@ import { NgForm } from '@angular/forms';
 })
 export class BukuComponent {
 
-  simpanBuku(form :NgForm){
-    console.log('pengujian klik'),
-    console.log(form.value.judul)
+  simpanBuku(form : NgForm){
+    console.log("Pengujian Klik")
+    console.log(form.value.judul);
   }
 }

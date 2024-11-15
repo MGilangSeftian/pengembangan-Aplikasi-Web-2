@@ -1,5 +1,5 @@
-export interface Buku {
-    judul : String,
-    penulis : String,
-    genre : string
+export interface Buku{
+    judul : string,
+    penulis : string,
+    genre : string[]
 }
