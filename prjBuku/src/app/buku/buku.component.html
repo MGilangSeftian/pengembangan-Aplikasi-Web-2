@@ -10,7 +10,9 @@
                 <form class="m-4" (submit)="simpanBuku(bukuForm)" #bukuForm="ngForm">
                     <div class="mb-3">
                         <label for="judul" class="form-label">Judul</label>
-                        <input type="text" class="form-control" id="judul" ngModel name="judul" #judul="ngModel" required>
+                        <input type="text" 
+                        [ngClass]="judul.invalid && bukuForm.submitted ? 'is-invalid':''"
+                        class="form-control" id="judul" ngModel name="judul" #judul="ngModel" required>
                         <div *ngif="judul.invalid && bukuForm.submitted" class="invalid-feedback">
                             Judul Buku Harus DiIsi
 
