@@ -6,9 +6,9 @@ import { Buku } from '../models/buku.models';
   providedIn: 'root'
 })
 export class BukuService {
-  private url : string = 'http://localhost:3000/bukus'
+  private url : string = 'http://localhost:3000/buku'
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
 
   addBuku(judul :string, penulis : string, genres: string[]){
     const buku : Buku ={
@@ -20,10 +20,10 @@ export class BukuService {
 
     console.log(buku);
 
-    // this.http.post<{message : string}>(this.url, buku)
-    // .subscribe((response)=>{
-    //   console.log(response.message)
-    // });
+    this.http.post<{message : string}>(this.url, buku)
+    .subscribe((response)=>{
+      console.log(response.message)
+    });
   }
   
 }
