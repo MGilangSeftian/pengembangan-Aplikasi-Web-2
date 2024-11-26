@@ -1,14 +1,28 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Buku } from '../models/buku.models';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BukuService {
-  private url : string = 'http://localhost:3000/buku'
+  private url : string = 'http://localhost:3000/buku';
+
+  private subjectBuku = new Subject<Buku[]>();
 
   constructor(private http : HttpClient) { }
+
+  getBukuListener(){
+    return this.subjectBuku.asObservable();
+  }
+  
+  getBuku(){
+    this.http.get<{message : string, bukus : Buku[]}>(this.url)
+    .subscribe((value) =>{
+      this.subjectBuku.next(value.bukus);
+    });
+  }
 
   addBuku(judul :string, penulis : string, genres: string[]){
     const buku : Buku ={
@@ -25,5 +39,6 @@ export class BukuService {
       console.log(response.message)
     });
   }
+
   
 }
