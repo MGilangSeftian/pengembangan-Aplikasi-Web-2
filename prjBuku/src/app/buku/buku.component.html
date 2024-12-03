@@ -9,6 +9,16 @@
       <div class="card mb-4">
         <form class="m-4" (submit)="simpanBuku(bukuForm)" #bukuForm="ngForm">
           <div class="mb-3">
+              <label for="id" class="form-label">Id</label>
+              <input
+                type="hidden"
+                class="form-control"
+                id="id"
+                ngModel
+                name="id"
+                #id="ngModel"/>
+          </div>
+          <div class="mb-3">
             <label for="judul" class="form-label">Judul</label>
             <input
               type="text"
@@ -20,8 +30,7 @@
               ngModel
               name="judul"
               #judul="ngModel"
-              required
-            />
+              required/>
             <div
               *ngIf="judul.invalid && bukuForm.submitted"
               class="invalid-feedback"
@@ -32,8 +41,7 @@
           <div class="mb-3">
             <label for="penulis" class="form-label">Penulis</label>
             <input
-              type="text"
-              class="form-control"
+              type="text"class="form-control"
               id="penulis"
               ngModel
               name="penulis"
@@ -85,7 +93,9 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary">Simpan Buku</button>
+          <button type="submit" class="btn btn-primary">{{mode}}</button>
+          &nbsp;
+          <button (click)="onReset" type="submit" class="btn btn-danger">Reset</button>
         </form>
         <div *ngIf="messageExecute != '' " class="m-4 p-2" style="background-color: rgb(119, 206, 177); font-size: medium;">
           {{messageExecute}}
@@ -118,11 +128,10 @@
               >
                 <td>{{ buku.judul }}</td>
                 <td>{{ buku.penulis }}</td>
-                <td>
-                  <button class="btn btn-outline-primary btn-sm">EDIT</button>
+                <td><button (click)="tampilData(buku, bukuForm)" 
+                  class="btn btn-outline-primary btn-sm">EDIT</button>
                 </td>
-                <td>
-                  <button (click)="hapusBuku(buku)" class="btn btn-outline-danger btn-sm">DELETE</button>
+                <td><button (click)="hapusBuku(buku)" class="btn btn-outline-danger btn-sm">DELETE</button>
                 </td>
               </tr>
             </tbody>

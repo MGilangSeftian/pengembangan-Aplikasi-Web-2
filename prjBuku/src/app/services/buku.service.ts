@@ -7,7 +7,6 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class BukuService {
-  // private url : string = 'http://localhost:3000/buku';
 
   private url: string = 'http://localhost:3000/buku/';
 
