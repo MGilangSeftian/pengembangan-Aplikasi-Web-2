@@ -3,6 +3,7 @@ var router = express.Router();
 
 
 const Bukucontroller = require("../controller/buku.js");
+const checkAuth = require("../middleware/check-auth.js");
 // /* GET users listing. */
 // router.get('/', function(req, res, next) {
 //   res.send('respond dari buku router');
@@ -24,12 +25,13 @@ const Bukucontroller = require("../controller/buku.js");
 //   });
 // });
 
-router.post("/",Bukucontroller.createBuku) ;
+router.post("/",checkAuth,Bukucontroller.createBuku) ;
   
 
-router.get("/", Bukucontroller.readBuku);
+router.get("/",checkAuth, Bukucontroller.readBuku);
 
-router.delete("/:id",Bukucontroller.deleteBuku);
+router.delete("/:id",checkAuth,Bukucontroller.deleteBuku);
 
-router.put("/:id",Bukucontroller.updateBuku); 
+router.put("/:id",checkAuth,Bukucontroller.updateBuku); 
+
 module.exports = router;
